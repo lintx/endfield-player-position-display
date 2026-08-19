@@ -1,0 +1,102 @@
+<Window x:Class="endfield_player_position_display.SeamEstimateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="蹭缝"
+        Width="380"
+        Height="320"
+        MinWidth="340"
+        MinHeight="280"
+        WindowStartupLocation="CenterOwner"
+        Background="#F7F9FC">
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="蹭缝"
+                   FontSize="20"
+                   FontWeight="SemiBold"
+                   Foreground="#1F2328"
+                   Margin="0,0,0,8" />
+
+        <Grid Grid.Row="1" Margin="0,0,0,8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Margin="0,0,12,0">
+                <TextBlock Text="当前高度（Y）" Foreground="#3C4043" Margin="0,0,0,6" />
+                <TextBlock x:Name="CurrentHeightText"
+                           FontFamily="Consolas"
+                           FontSize="24"
+                           Foreground="#1F2328" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="目标高度（Y）" Foreground="#3C4043" Margin="0,0,0,6" />
+                <TextBox x:Name="TargetHeightTextBox"
+                         Height="30"
+                         FontFamily="Consolas"
+                         VerticalContentAlignment="Center" />
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,0,8">
+            <Button x:Name="StartButton"
+                    Content="开始"
+                    Width="72"
+                    Height="28"
+                    Margin="0,0,8,0"
+                    Click="StartButtonClick" />
+            <Button x:Name="EndButton"
+                    Content="结束"
+                    Width="72"
+                    Height="28"
+                    Margin="0,0,8,0"
+                    Click="EndButtonClick" />
+            <Button x:Name="ManualMarkButton"
+                    Content="打点"
+                    Width="72"
+                    Height="28"
+                    Margin="0,0,8,0"
+                    Click="ManualMarkButtonClick" />
+            <TextBlock x:Name="CountdownText"
+                       VerticalAlignment="Center"
+                       Foreground="#3C4043" />
+        </StackPanel>
+
+        <Grid Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="EstimateText"
+                       Grid.Row="0"
+                       TextWrapping="Wrap"
+                       Foreground="#1F2328"
+                       Margin="0,0,0,8" />
+            <TextBlock x:Name="StatusText"
+                       Grid.Row="1"
+                       TextWrapping="Wrap"
+                       Foreground="#3C4043"
+                       Margin="0,0,0,8" />
+            <TextBox x:Name="ReportTextBox"
+                     Grid.Row="2"
+                     IsReadOnly="True"
+                     TextWrapping="Wrap"
+                     AcceptsReturn="True"
+                     VerticalScrollBarVisibility="Auto"
+                     FontFamily="Consolas"
+                     Foreground="#1F2328"
+                     Background="White"
+                     BorderBrush="#D0D7DE"
+                     Padding="6" />
+        </Grid>
+    </Grid>
+</Window>

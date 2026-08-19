@@ -28,6 +28,7 @@ namespace endfield_player_position_display
         private PositionMonitorService monitorService;
         private CoordinateWindow coordinateWindow;
         private DetectionToastWindow detectionToastWindow;
+        private SeamEstimateWindow seamEstimateWindow;
         private ZiplineRealtimeDetector realtimeDetector;
         private bool isLoadingCaptureMarks;
         private bool isCapturing;
@@ -86,6 +87,12 @@ namespace endfield_player_position_display
                 detectionToastWindow = null;
             }
 
+            if (seamEstimateWindow != null)
+            {
+                seamEstimateWindow.Close();
+                seamEstimateWindow = null;
+            }
+
             if (monitorService != null)
             {
                 monitorService.Dispose();
@@ -141,6 +148,29 @@ namespace endfield_player_position_display
             if (window.TokensChanged)
             {
                 await RestartAfterTokenChangeAsync();
+            }
+        }
+
+        private void SeamEstimateButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (seamEstimateWindow != null)
+            {
+                seamEstimateWindow.Activate();
+                return;
+            }
+
+            seamEstimateWindow = new SeamEstimateWindow(viewModel);
+            seamEstimateWindow.Owner = this;
+            seamEstimateWindow.Closed += SeamEstimateWindowClosed;
+            seamEstimateWindow.Show();
+        }
+
+        private void SeamEstimateWindowClosed(object sender, EventArgs e)
+        {
+            if (seamEstimateWindow != null)
+            {
+                seamEstimateWindow.Closed -= SeamEstimateWindowClosed;
+                seamEstimateWindow = null;
             }
         }
 

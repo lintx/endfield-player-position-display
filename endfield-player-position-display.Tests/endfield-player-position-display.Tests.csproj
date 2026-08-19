@@ -46,6 +46,7 @@
     <Compile Include="ScanLoginTests.cs" />
     <Compile Include="SklandSignerTests.cs" />
     <Compile Include="SklandApiParsingTests.cs" />
+    <Compile Include="SklandApiRequestTests.cs" />
     <Compile Include="CoordinateFormatterTests.cs" />
     <Compile Include="PositionWebSocketMessageTests.cs" />
     <Compile Include="ZiplineMatcherTests.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="FollowWindowPlacementTests.cs" />
     <Compile Include="NetworkTimeServiceTests.cs" />
     <Compile Include="PositionCaptureRecorderTests.cs" />
+    <Compile Include="SeamMotionAnalyzerTests.cs" />
     <Compile Include="ZiplineMotionAnalyzerTests.cs" />
     <Compile Include="ZiplineCollectionExporterTests.cs" />
     <Compile Include="ZiplineRealtimeDetectorTests.cs" />

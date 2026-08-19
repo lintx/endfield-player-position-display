@@ -80,6 +80,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="SeamEstimateWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -101,6 +105,10 @@
       <DependentUpon>TokenManagerWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SeamEstimateWindow.xaml.cs">
+      <DependentUpon>SeamEstimateWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\CredentialResult.cs" />
     <Compile Include="Models\DetectedZiplineStop.cs" />
     <Compile Include="Models\MonitorUpdate.cs" />
@@ -109,6 +117,10 @@
     <Compile Include="Models\RoleBinding.cs" />
     <Compile Include="Models\RoleSession.cs" />
     <Compile Include="Models\TokenAccountInfo.cs" />
+    <Compile Include="Models\SeamHeightSample.cs" />
+    <Compile Include="Models\SeamMotionEstimate.cs" />
+    <Compile Include="Models\SeamMotionReport.cs" />
+    <Compile Include="Models\SeamMotionSegment.cs" />
     <Compile Include="Models\ZiplineLookupResult.cs" />
     <Compile Include="Models\ZiplineMark.cs" />
     <Compile Include="Models\ZiplineMotionAnalysisResult.cs" />
@@ -129,6 +141,7 @@
     <Compile Include="Services\PositionWebSocketClient.cs" />
     <Compile Include="Services\PositionCaptureRecorder.cs" />
     <Compile Include="Services\ScanLoginApiClient.cs" />
+    <Compile Include="Services\SeamMotionAnalyzer.cs" />
     <Compile Include="Services\ZiplineCollectionExporter.cs" />
     <Compile Include="Services\ZiplineRealtimeDetector.cs" />
     <Compile Include="Services\ZiplineMotionAnalyzer.cs" />

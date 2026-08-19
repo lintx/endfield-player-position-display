@@ -20,6 +20,14 @@ namespace endfield_player_position_display.Tests
             }
         }
 
+        public static void IsTrue(bool condition)
+        {
+            if (!condition)
+            {
+                throw new InvalidOperationException("Expected condition to be true.");
+            }
+        }
+
         public static T Throws<T>(Action action)
             where T : Exception
         {

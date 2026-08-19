@@ -13,7 +13,8 @@ namespace endfield_player_position_display.Services
     public sealed class SklandApiClient : IDisposable
     {
         private const string GrantUrl = "https://as.hypergryph.com/user/oauth2/v2/grant";
-        private const string CredUrl = "https://zonai.skland.com/web/v1/user/auth/generate_cred_by_code";
+        private const string CredUrl = "https://zonai.skland.com/api/v1/user/auth/generate_cred_by_code";
+        private const string UserAgent = "Skland/1.0.1 (com.hypergryph.skland; build:100001014; Android 31; ) Okhttp/4.11.0";
         private const string BindingPath = "/api/v1/game/player/binding";
         private const string WebSocketTokenPath = "/api/v1/websocket/token";
         private const string MarkListPath = "/web/v1/game/endfield/map/mark/list";
@@ -39,6 +40,7 @@ namespace endfield_player_position_display.Services
         {
             this.httpClient = httpClient;
             this.ownsClient = ownsClient;
+            this.httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(UserAgent);
         }
 
         public TimeSpan NetworkTimeOffset
